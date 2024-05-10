@@ -1,0 +1,26 @@
+<!-- index.html -->
+{% extends 'fin_app/base.html' %}
+
+{% block title %}
+Финансовые организации
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Финансовые Организации</h1>
+<a href="{% url 'create_organization' %}" class="btn btn-success mb-3">Добавить организацию</a>
+<div class="row">
+    {% for org in organizations %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ org.name }}</h5>
+                <p class="card-text">{{ org.address }}</p>
+                <p class="card-text">{{ org.phone_number }}</p>
+                <p class="card-text">{{ org.email }}</p>
+                <a href="{% url 'edit_organization' pk=org.id %}" class="btn btn-primary">Редактировать</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

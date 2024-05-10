@@ -1,0 +1,36 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>{% block title %}Финансовые Организации{% endblock %}</title>
+</head>
+<body>
+<!--    <div>-->
+<!--    {% if user.is_authenticated %}-->
+<!--        <p>Привет, {{ user.username }}!</p>-->
+<!--        <a href="{% url 'logout' %}">Выйти</a>-->
+<!--    {% else %}-->
+<!--        <a href="{% url 'register' %}">Регистрация</a>-->
+<!--    {% endif %}-->
+<!--    </div>-->
+    <div>
+    {% if user.is_authenticated %}
+        Привет, {{ user.username }}!
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Выйти</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Войти</a>
+        <a href="{% url 'register' %}">Регистрация</a>
+    {% endif %}
+    </div>
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

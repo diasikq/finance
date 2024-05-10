@@ -1,0 +1,12 @@
+<!-- fin_app/templates/fin_app/login.html -->
+{% extends 'fin_app/base.html' %}
+
+{% block content %}
+<h2>Вход в систему</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Войти</button>
+</form>
+<a href="{% url 'register' %}">Регистрация</a>
+{% endblock %}

@@ -9,18 +9,18 @@ fin_app
 
 /fin_app/
 
-   home/ [name='home']
+   fin_app/home/ [name='home']
 
-   api/
+   fin_app/api/
    
-   new/ [name='create_organization']
+   fin_app/new/ [name='create_organization']
    
-   edit/<int:pk>/ [name='edit_organization']
+   fin_app/edit/<int:pk>/ [name='edit_organization']
    
-   login/ [name='login']
+   fin_app/login/ [name='login']
    
-   logout/ [name='logout']
+   fin_app/logout/ [name='logout']
    
-   register/ [name='register']
+   fin_app/register/ [name='register']
 
 Есть распределение по ролям Куратор и Ревьюер. Настройки для каждой из ролей и групп можно просмотреть в админ панели root:admin123.
